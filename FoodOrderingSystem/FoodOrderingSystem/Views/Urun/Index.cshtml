@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Products";
+}
+
+@section head{
+    <link href="/Content/Admin/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+}
+
+@using FoodOrderingSystem.Models
+@model List<Food>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Products
+                </div>
+                <div class="block-controls">
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                    <a href="/Urun/AddProduct" class="btn btn-success rounded">New Product</a>
+
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Food Name</th>
+                                <th>Food Definition</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Total Price</th>
+                                <th>Amount</th>
+                                <th>Show Image</th>
+                                <th>Add to Basket</th>
+                                <th>Detail</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Food u in Model)
+                            {
+                                <tr>
+                                    <td>@u.FoodName</td>
+                                    <td>@u.FoodDefinition</td>
+                                    @if (u.Category == null)
+                                    {
+                                        <td></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="label label-info">@u.Category.CategoryName</span></td>
+                                    }
+                                    <td>@u.Price</td>
+                                    <td>@u.TotalPrice</td>
+                                    @if (u.Amount > 0)
+                                    {
+                                        <td><span class="label-success">@u.Amount</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="label-danger">No Amount</span></td>
+                                    }
+                                    
+                                <td>
+                                    @if (u.Resim != null)
+                                    {
+                                        <a class="fancybox" rel="group" href="@u.Resim.OrtaYol"><i><span class="glyphicon glyphicon-picture"></span></i></a>
+                                    }
+                                </td>
+
+                                    <td><a class="btn btn-default sepeteAt" data-id="@u.FoodID" href="#">Add to Basket</a></td>
+                                    <td><a class="btn btn-primary" href="/Urun/UrunDetay?id=@u.FoodID&adi=@u.FoodName">Detail</a></td>
+                                    <td><a href="/Urun/RemoveProduct/@u.FoodID" class="btn btn-danger rounded">Remove</a></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(".sepeteAt").click(function () {
+            var id = $(this).data("id");
+            $.ajax({
+                type: "POST",
+                url: "/Urun/sepeteAt/" + id,
+                success: function () {
+                    alert("The Product Added to Basket");
+                },
+                error: function () {
+                    alert("When Product Adding to Basket , An error Exist!");
+                }
+            });
+        });
+    </script>
+}
+
+<script src="/Content/Admin/assets/fancybox/source/jquery.fancybox.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //    fancybox
+        jQuery(".fancybox").fancybox();
+    });
+
+</script>

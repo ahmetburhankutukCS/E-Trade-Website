@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "Anasayfa";
+}
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Active User</th>
+            <th>Total Visiter</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@ViewBag.ActiveUser</td>
+            <td>@ViewBag.ToplamZiyaretci</td>
+
+        </tr>
+    </tbody>
+</table>
+
+<div class="container" style="padding-top:1px">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"> </li>
+            <li data-target="#myCarousel" data-slide-to="1"> </li>
+            <li data-target="#myCarousel" data-slide-to="2"> </li>
+            <li data-target="#myCarousel" data-slide-to="3"> </li>
+            <li data-target="#myCarousel" data-slide-to="4"> </li>
+            <li data-target="#myCarousel" data-slide-to="5"> </li>
+
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="~/Images/burger.jpg">
+            </div>
+
+            <div class="item">
+                <img src="~/Images/kebap.jpg">
+            </div>
+
+            <div class="item">
+                <img src="~/Images/Balık köfte.jpg">
+            </div>
+
+
+
+            <div class="item">
+                <img src="~/Images/fasulye.jpg">
+            </div>
+
+            <div class="item">
+                <img src="~/Images/lahmacun.jpg">
+            </div>
+        </div>
+        <!-- Left and right controls -->
+        <a href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"> </span>
+
+        </a>
+
+        <a href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"> </span>
+
+        </a>
+    </div>
+</div>
+
+<marquee behavior=alternate bgcolor="#ffffff ">
+
+    <img src="~/Images/burger.jpg">
+
+    <img src="~/Images/kebap.jpg">
+
+    <img src="~/Images/Balık köfte.jpg">
+
+    <img src="~/Images/fasulye.jpg">
+    <img src="~/Images/lahmacun.jpg">
+
+</marquee>
+
+
+<br /><br /><br />
+
+
+<div style="position: relative; height: 840px;" data-bind="visible: isVisible" class="categoryBanners contain-lg-4 contain-md-4 contain-sm-4 fluid">
+    <div style="position: absolute; left: 176px; top: 16px; width: 467px; height: 202px;" class="categoryBanner">
+        <a href="https://www.yemeksepeti.com/istanbul/kebap-turk-mutfagi">
+            <img src="~/Images/kebap.jpg" title="Kebap_Kategorisi" height="170" width="435">
+        </a>
+    </div>
+
+    <br /><br /><br />
+
+
+    <div style="position: absolute; left: 643px; top: 16px; width: 467px; height: 202px;" class="categoryBanner">
+        <a href="https://www.yemeksepeti.com/istanbul/pide">
+            <img src="~/Images/pide.jpg" title="Pide_Kategorisi" height="170" width="435">
+        </a>
+    </div>
+
+    <br /><br /><br />
+
+    <div style="position: absolute; left: 176px; top: 218px; width: 467px; height: 202px;" class="categoryBanner">
+        <a href="https://www.yemeksepeti.com/istanbul/pizza-italyan">
+            <img src="~/Images/pizza-uhd-4k-wallpaper.jpg" title="Pizza_Kategorisi" height="170" width="435">
+        </a>
+    </div>
+
+    <br /><br /><br />
+
+    <div style="position: absolute; left: 643px; top: 218px; width: 467px; height: 202px;" class="categoryBanner">
+        <a href="https://www.yemeksepeti.com/istanbul/burger">
+            <img src="~/Images/burger.jpg" title="Burger_Kategorisi" height="170" width="435">
+        </a>
+    </div>
+
+    <br /><br /><br />
+
+    <div style="position: absolute; left: 176px; top: 420px; width: 467px; height: 202px;" class="categoryBanner">
+        <a href="https://www.yemeksepeti.com/istanbul/fast-food-sandwich">
+            <img src="~/Images/ostrij-holecistit-priznaki-lechenie-dieta-2.jpg" title="Fast_Food_Kategorisi" height="170" width="435">
+        </a>
+    </div>
+
+    <br /><br /><br />
+
+    <div style="position: absolute; left: 643px; top: 420px; width: 467px; height: 202px;" class="categoryBanner">
+        <a href="https://www.yemeksepeti.com/istanbul/doner">
+            <img src="~/Images/0-418543118434-85b2c5359a6b55025e4aa68a3f565a14.jpg" title="Döner_Kategorisi" height="170" width="435">
+        </a>
+    </div>
+
+</div>
+

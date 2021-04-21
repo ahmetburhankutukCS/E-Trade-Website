@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Add Product";
+}
+
+@using FoodOrderingSystem.Models
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Add Product Page
+                </div>
+                <div class="block-controls">
+                 <a href="/Urun/Index"><span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span></a>   
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Urun/AddProduct" enctype="multipart/form-data" method="post" role="form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Product Name:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Type a Product Name" name="FoodName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Food Definition:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Type definition of the Food" name="FoodDefinition">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Category:</label>
+                            <select name="CategoryID" class="form-control">
+                                @foreach (Category ktg in ViewBag.Category)
+                                {
+                                    <option value="@ktg.CategoryID">@ktg.CategoryName</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Price:</label>
+                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Type Price of the Product" name="Price">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Total Price:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Type Total Price of the Product" name="TotalPrice">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Amount:</label>
+                            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Type Amount of the Product" name="Amount">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Product Image</label>
+                            <div class="controls col-md-9">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <span class="btn btn-white btn-file">
+                                        <span class="fileupload-new"><i class="icon-paper-clip"></i> Choose Image</span>
+                                        <input type="file" class="default" name="fileUpload"/>
+                                    </span>
+                                    <span class="fileupload-preview" style="margin-left:5px;"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
